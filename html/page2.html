@@ -1,13 +1,34 @@
-﻿<!DOCTYPE htmt>
-<html lang ="vi">
-   <head>
-      
-         <title> Thiết kế wed với HTML, CSS</title>
-         <meta charset = "utf -8">
-       </head>
-       <body>
-         	trang 2
- 
-         
-       </body>
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thiết kế from</title>
+    <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body>
+    <div class="container">
+        <form id="frmLogin">
+            <h3>Đăng nhập hệ thống</h3>
+            <div class="form-group">
+                <label for="txtUsername">Tên đăng nhập</label>
+                <input class="form-control" type="text" id="txtUsername" name="txtUsername" placeholder="Nhập tên đăng nhập">
+            </div>
+            <div class="form-group">
+                <label for="txtPassword">Mật khẩu</label>
+                <input class="form-control" type="password" id="txtPassword" name="txtPassword" placeholder="Nhập mật khẩu">
+            </div>
+            <input type="submit" name="sbLogin" value="Đăng nhập">
+            <input type="reset" name="rsCancel" value="Hủy bỏ">
+            <input type="button" id="btnClear" value="Xóa tài khoản/mật khẩu">
+            <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('btnClear').addEventListener('click', function() {
+            document.getElementById('txtUsername').value = '';
+            document.getElementById('txtPassword').value = '';
+        });
+    </script>
+</body>
 </html>
