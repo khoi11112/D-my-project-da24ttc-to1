@@ -1,0 +1,148 @@
+body{
+    font-family: Arial;
+    background:#0f0f0f; /* nền đen YouTube */
+    color:white;
+}
+
+.form-box{
+    width:420px;
+    margin:50px auto;
+    padding:20px;
+    background:#1c1c1c; 
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.8);
+}
+
+h2{
+    text-align:center;
+    color:#ff0000; 
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border:none;
+    border-radius:5px;
+    background:#2a2a2a;
+    color:white;
+}
+
+input:focus, select:focus, textarea:focus{
+    outline:none;
+    border:1px solid #ff0000;
+}
+
+.button-group{
+    margin-top:20px;
+    text-align:center;
+}
+
+button{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* nút đăng ký */
+button[type="submit"]{
+    background:#ff0000;
+    color:white;
+}
+
+button[type="submit"]:hover{
+    background:#cc0000;
+}
+
+/* nút reset */
+button[type="reset"]{
+    background:#333;
+    color:white;
+}
+
+button[type="reset"]:hover{
+    background:#555;
+}
+body{
+    font-family: Arial;
+    background:#0f0f0f; /* nền đen YouTube */
+    color:white;
+}
+
+.form-box{
+    width:420px;
+    margin:50px auto;
+    padding:20px;
+    background:#1c1c1c; /* khung xám đậm */
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.8);
+}
+
+h2{
+    text-align:center;
+    color:#ff0000; /* đỏ YouTube */
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border:none;
+    border-radius:5px;
+    background:#2a2a2a;
+    color:white;
+}
+
+input:focus, select:focus, textarea:focus{
+    outline:none;
+    border:1px solid #ff0000;
+}
+
+.button-group{
+    margin-top:20px;
+    text-align:center;
+}
+
+button{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* nút đăng ký */
+button[type="submit"]{
+    background:#ff0000;
+    color:white;
+}
+
+button[type="submit"]:hover{
+    background:#cc0000;
+}
+
+/* nút reset */
+button[type="reset"]{
+    background:#333;
+    color:white;
+}
+
+button[type="reset"]:hover{
+    background:#555;
+}
