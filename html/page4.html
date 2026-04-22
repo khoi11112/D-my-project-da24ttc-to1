@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bảng thanh toán hóa đơn</title>
+<link rel="stylesheet" href="../css/style4.css">
+</head>
+
+<body>
+
+<h1>Bảng Thanh Toán Hóa Đơn</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>TÊN SẢN PHẨM</th>
+            <th>SỐ LƯỢNG</th>
+            <th>ĐƠN GIÁ</th>
+            <th>THÀNH TIỀN</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>A</td>
+            <td><input class="so-luong" value="3"></td>
+            <td><input class="gia" value="1000"></td>
+            <td class="thanh-tien"></td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>B</td>
+            <td><input class="so-luong" value="2"></td>
+            <td><input class="gia" value="2000"></td>
+            <td class="thanh-tien"></td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>C</td>
+            <td><input class="so-luong" value="4"></td>
+            <td><input class="gia" value="3000"></td>
+            <td class="thanh-tien"></td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="4" style="text-align:right; font-weight:bold;">
+                Tổng thanh toán:
+            </td>
+            <td id="tong-tien">0</td>
+        </tr>
+    </tfoot>
+</table>
+
+<br>
+<button onclick="pay()">Thanh Toán</button>
+
+<script>
+function pay() {
+    const donGia = document.getElementsByClassName("gia");
+    const soLuong = document.getElementsByClassName("so-luong");
+    const thanhTien = document.getElementsByClassName("thanh-tien");
+
+    let tongThanhToan = 0;
+
+    for (let i = 0; i < donGia.length; i++) {
+        let gia = parseInt(donGia[i].value) || 0;
+        let sl = parseInt(soLuong[i].value) || 0;
+
+        let subtotal = gia * sl;
+
+        thanhTien[i].innerHTML = subtotal;
+        tongThanhToan += subtotal;
+    }
+
+    document.getElementById("tong-tien").innerHTML = tongThanhToan;
+}
+</script>
+
+</body>
+</html>

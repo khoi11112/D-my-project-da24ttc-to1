@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Cửu Chương</title>
+<link rel="stylesheet" href="../css/style5.css">
+</head>
+<body>
+
+    <div class="box">
+        <h3>Bảng Cửu Chương</h3>
+        <label>Nhập số:</label>
+        <input type="number" id="soNhap" placeholder="Nhập một số..." oninput="inCuuChuong()">
+        
+        <div id="ket-qua">
+        </div>
+    </div>
+    <script>
+        function inCuuChuong() {
+            let n = document.getElementById("soNhap").value;
+            let hienThi = document.getElementById("ket-qua");
+            if (n === "") {
+                hienThi.innerHTML = "";
+                return;
+            }
+
+            let noiDung = "";
+            for (let i = 1; i <= 10; i++) {
+                let ketQua = n * i;
+                noiDung += n + " x " + i + " = " + "<strong>" + ketQua + "</strong><br>";
+            }
+            hienThi.innerHTML = noiDung;
+        }
+
+        function kiemTraBang5() {
+            const dapAn = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+            let dung = 0;
+            for (let i = 1; i <= 10; i++) {
+                const input = document.getElementById(`5-${i}`);
+                const value = parseInt(input.value);
+                if (value === dapAn[i-1]) {
+                    dung++;
+                    input.style.backgroundColor = '#90EE90';
+                } else {
+                    input.style.backgroundColor = '#FFB6C6';
+                }
+            }
+            document.getElementById('ket-qua-5').textContent = `Đúng ${dung}/10 câu!`;
+        }
+    </script>
+
+</body>
+</html>
