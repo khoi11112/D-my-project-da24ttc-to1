@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh cong</title>
+<link rel="stylesheet" href="../css/style6.css">
+</head>
+<body>
+<script>
+    const newdiv = document.createElement("div");
+    newdiv.setAttribute("class", "product-item");
+
+    const statusTitle = document.createElement("h1");
+    statusTitle.textContent = "THANH CÔNG";
+    newdiv.appendChild(statusTitle);
+
+    const productName = document.createElement("h2");
+    productName.textContent = "Tên sản phẩm: ảnh";
+    newdiv.appendChild(productName);
+
+    const productPrice = document.createElement("p");
+    productPrice.setAttribute("class", "price");
+    productPrice.textContent = "Giá: 199.000₫";
+    newdiv.appendChild(productPrice);
+
+    const productDetails = document.createElement("p");
+    productDetails.setAttribute("class", "details");
+    productDetails.textContent = "Chi tiết: Hình ảnh.";
+    newdiv.appendChild(productDetails);
+
+    const newImg = document.createElement("img");
+        newImg.setAttribute("src", "../assets/images/chonhat.jpg");
+    newImg.setAttribute("alt", "Success Image");
+    newImg.setAttribute("width", "300");
+    newdiv.appendChild(newImg);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.setAttribute("class", "button-container");
+
+    const buyButton = document.createElement("button");
+    buyButton.setAttribute("class", "btn buy-btn");
+    buyButton.textContent = "Mua ngay";
+    buttonContainer.appendChild(buyButton);
+
+    const backButton = document.createElement("button");
+    backButton.setAttribute("class", "btn back-btn");
+    backButton.textContent = "Quay lại";
+    backButton.onclick = function() { window.location.href = "../index.html"; };
+    buttonContainer.appendChild(backButton);
+
+    newdiv.appendChild(buttonContainer);
+
+    document.body.appendChild(newdiv);
+</script>
+</body>
+</html>
