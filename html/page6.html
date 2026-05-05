@@ -2,55 +2,53 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thanh cong</title>
-<link rel="stylesheet" href="../css/style6.css">
+    <title>Thư viện ảnh</title>
+    <link rel="stylesheet" href="../css/style6.css">
 </head>
 <body>
-<script>
-    const newdiv = document.createElement("div");
-    newdiv.setAttribute("class", "product-item");
+    <div class="page">
+        <header class="hero">
+            <h1>Thư viện ảnh</h1>
+            <p>Trang web hiển thị các hình ảnh đẹp từ bộ sưu tập của bạn.</p>
+            <div class="cart-info">
+                <span>Giỏ hàng: <span id="cart-count">0</span> sản phẩm</span>
+                <button class="view-cart-btn" onclick="viewCart()">Xem giỏ hàng</button>
+                <button class="clear-cart-btn" onclick="clearCart()">Xóa giỏ hàng</button>
+            </div>
+        </header>
 
-    const statusTitle = document.createElement("h1");
-    statusTitle.textContent = "THANH CÔNG";
-    newdiv.appendChild(statusTitle);
+        <main class="gallery" id="gallery">
+            <!-- Gallery items sẽ được tạo bởi renderGallery() -->
+        </main>
 
-    const productName = document.createElement("h2");
-    productName.textContent = "Tên sản phẩm: ảnh";
-    newdiv.appendChild(productName);
+        <section class="price-table">
+            <h2>Bảng Giá Chi Tiết</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá (VNĐ)</th>
+                        <th>Mô Tả</th>
+                    </tr>
+                </thead>
+                <tbody id="price-table-body">
+                    <!-- Bảng giá sẽ được tạo bởi renderPriceTable() -->
+                </tbody>
+            </table>
+        </section>
 
-    const productPrice = document.createElement("p");
-    productPrice.setAttribute("class", "price");
-    productPrice.textContent = "Giá: 199.000₫";
-    newdiv.appendChild(productPrice);
-
-    const productDetails = document.createElement("p");
-    productDetails.setAttribute("class", "details");
-    productDetails.textContent = "Chi tiết: Hình ảnh.";
-    newdiv.appendChild(productDetails);
-
-    const newImg = document.createElement("img");
-        newImg.setAttribute("src", "../assets/images/chonhat.jpg");
-    newImg.setAttribute("alt", "Success Image");
-    newImg.setAttribute("width", "300");
-    newdiv.appendChild(newImg);
-
-    const buttonContainer = document.createElement("div");
-    buttonContainer.setAttribute("class", "button-container");
-
-    const buyButton = document.createElement("button");
-    buyButton.setAttribute("class", "btn buy-btn");
-    buyButton.textContent = "Mua ngay";
-    buttonContainer.appendChild(buyButton);
-
-    const backButton = document.createElement("button");
-    backButton.setAttribute("class", "btn back-btn");
-    backButton.textContent = "Quay lại";
-    backButton.onclick = function() { window.location.href = "../index.html"; };
-    buttonContainer.appendChild(backButton);
-
-    newdiv.appendChild(buttonContainer);
-
-    document.body.appendChild(newdiv);
-</script>
+        <footer class="footer">
+            <div class="nav-links">
+                <a class="btn" href="../index.html">← Trang chủ</a>
+                <a class="btn" href="page1.html">Trang 1</a>
+                <a class="btn" href="page2.html">Trang 2</a>
+                <a class="btn" href="page3.html">Trang 3</a>
+                <a class="btn" href="page4.html">Trang 4</a>
+                <a class="btn" href="page5.html">Trang 5</a>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/lib.js"></script>
 </body>
 </html>
