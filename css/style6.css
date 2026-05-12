@@ -1,0 +1,62 @@
+/* Tổng thể trang */
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Dàn hàng ngang các món ăn */
+.menu-container {
+  display: flex;
+  flex-wrap: wrap; /* Tự xuống dòng nếu hết chỗ */
+  gap: 20px;       /* Khoảng cách giữa các món */
+  justify-content: center;
+}
+
+/* Khung của từng món ăn */
+.card {
+  background: white;
+  width: 280px;    /* Độ rộng cố định cho mỗi món */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Làm cho các hình ảnh nhỏ và bằng nhau */
+.card img {
+  width: 100%;
+  height: 180px;   /* Chiều cao cố định */
+  object-fit: cover; /* Ảnh không bị móp méo */
+}
+
+/* Phần nội dung chữ */
+.info {
+  padding: 15px;
+  text-align: center;
+}
+
+.info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.price {
+  color: #e44d26;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Nút bấm */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -2,13 +2,11 @@
 
 // 1. Khai báo mảng sản phẩm
 const productList = [
-    { id: "01", name: "Ảnh phong cảnh 1", price: 150000, image: "../assets/images/anh.jpg", description: "Hình ảnh phong cảnh đẹp, chất lượng cao" },
-    { id: "02", name: "Ảnh phong cảnh 2", price: 170000, image: "../assets/images/canh.jpg", description: "Bộ sưu tập ảnh phong cảnh tự nhiên" },
-    { id: "03", name: "Cánh đồng", price: 140000, image: "../assets/images/canhdong.jpg", description: "Hình ảnh cánh đồng xanh mướt" },
-    { id: "04", name: "Chọn nhất", price: 220000, image: "../assets/images/chonhat.jpg", description: "Bộ ảnh được chọn lọc kỹ càng" },
-    { id: "05", name: "Ảnh đẹp", price: 130000, image: "../assets/images/dep.jpg", description: "Hình ảnh đẹp mắt, sáng tạo" },
-    { id: "06", name: "Cô gái", price: 160000, image: "../assets/images/girl.jpg", description: "Chân dung cô gái xinh đẹp" },
-    { id: "07", name: "Xanh mát", price: 145000, image: "../assets/images/xanh.jpg", description: "Hình ảnh màu xanh dịu mắt" }
+    { id: "01", name: "Bánh mì thịt", price: 150000, image: "../assets/images/banhmi.jpg", description: "Bánh mì giòn rụm kẹp pate và thịt nướng", details: "Bánh mì gồm pate, chả lụa, trứng, dưa leo, rau thơm, sốt mayonnaise và tương ớt." },
+    { id: "02", name: "Bún nem", price: 170000, image: "../assets/images/bunnem.jpg", description: "Bún tươi ăn kèm nem giòn và nước mắm chua ngọt", details: "Bún, nem chua rán, rau sống, giá, dưa leo và nước mắm chua ngọt đậm đà." },
+    { id: "03", name: "Cháo lòng", price: 140000, image: "../assets/images/chaolong.jpg", description: "Cháo lòng ninh nhừ thơm ngon, ăn kèm hành và tiêu", details: "Cháo trắng mềm, lòng heo, huyết, gan, hành tây, hành lá, tiêu và mỡ hành." },
+    { id: "04", name: "Cơm tấm sườn", price: 220000, image: "../assets/images/comtam.jpg", description: "Cơm tấm sườn nướng mềm, ăn kèm bì chả và trứng ốp la", details: "Cơm tấm thơm, sườn nướng, bì, chả, trứng ốp la, dưa leo và nước mắm đặc trưng." },
+    { id: "05", name: "Phở bò", price: 130000, image: "../assets/images/pho.jpg", description: "Phở bò nóng hổi với nước dùng ngọt tự nhiên và bánh phở mềm", details: "Nước dùng trong, bánh phở mềm dai, thịt bò tái, hành lá, giá và rau thơm." },
 ];
 
 // 2. Hàm thêm sản phẩm vào giỏ hàng
@@ -44,9 +42,16 @@ function renderGallery(containerId) {
         const figure = document.createElement('figure');
         figure.setAttribute('class', 'gallery-item');
         
+        const link = document.createElement('a');
+        link.setAttribute('href', `detail.html?productId=${product.id}`);
+        link.setAttribute('class', 'product-link');
+        
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
         img.setAttribute('alt', product.name);
+        
+        link.appendChild(img);
+        figure.appendChild(link);
         
         const figcaption = document.createElement('figcaption');
         
@@ -68,42 +73,45 @@ function renderGallery(containerId) {
         figcaption.appendChild(priceSpan);
         figcaption.appendChild(buyBtn);
         
-        figure.appendChild(img);
         figure.appendChild(figcaption);
         
         gallery.appendChild(figure);
     });
 }
 
-// 4. Hàm render bảng giá từ productList
-function renderPriceTable(containerId) {
-    const tableBody = document.getElementById(containerId);
-    if (!tableBody) return;
-    
-    tableBody.innerHTML = '';
-    
-    productList.forEach((product, index) => {
-        const tr = document.createElement('tr');
-        
-        const tdNo = document.createElement('td');
-        tdNo.textContent = index + 1;
-        
-        const tdName = document.createElement('td');
-        tdName.textContent = product.name;
-        
-        const tdPrice = document.createElement('td');
-        tdPrice.textContent = product.price.toLocaleString();
-        
-        const tdDesc = document.createElement('td');
-        tdDesc.textContent = product.description;
-        
-        tr.appendChild(tdNo);
-        tr.appendChild(tdName);
-        tr.appendChild(tdPrice);
-        tr.appendChild(tdDesc);
-        
-        tableBody.appendChild(tr);
-    });
+// 4. Hàm lấy thông tin sản phẩm theo ID
+function getProductById(productId) {
+    return productList.find(product => product.id === String(productId));
+}
+
+// 5. Hàm render trang chi tiết nếu đang ở detail.html
+function renderDetailPage() {
+    const detailContainer = document.getElementById('detail-content');
+    if (!detailContainer) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('productId');
+    const product = getProductById(productId);
+
+    if (!product) {
+        detailContainer.innerHTML = '<p>Không tìm thấy sản phẩm. Vui lòng quay lại thư viện.</p>';
+        return;
+    }
+
+    detailContainer.innerHTML = `
+        <div class="detail-card">
+            <img src="${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <h3>Thông tin chi tiết</h3>
+            <ul>
+                <li>Giá: ${product.price.toLocaleString()}₫</li>
+                <li>Chi tiết: ${product.details}</li>
+                <li>Trạng thái: Còn hàng</li>
+            </ul>
+            <a class="btn" href="page6.html">← Trở về thư viện</a>
+        </div>
+    `;
 }
 
 // 5. Hàm xem giỏ hàng
@@ -140,5 +148,5 @@ function clearCart() {
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
     renderGallery('gallery');
-    renderPriceTable('price-table-body');
+    renderDetailPage();
 });
